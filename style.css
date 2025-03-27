@@ -181,13 +181,10 @@ th {
 	opacity: 1;
 }
 
-/* #date3 {
-	background-color: aquamarine;
-} */
-
 footer {
 	background-color: #5077AF;
 	width: 100%;
+	margin-bottom: 0;
 	height: 50px;
 	bottom: 0;
 	position: absolute;
