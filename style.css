@@ -12,7 +12,23 @@ header {
 	height: 80px;
 	display: flex;
 	position: absolute;
-	
+}
+
+#name-container {
+	position: absolute;
+	padding: 10px;
+	display: flex;
+	top: 0;
+	bottom: 0;
+	margin-left: 2%;
+	max-width: 50%;
+}
+
+#user-name {
+	color:#F5F5F5;
+	font-family: Jost;
+	font-size: 24px;
+	margin: auto;
 }
 
 .heading {
@@ -54,7 +70,7 @@ main {
 	box-shadow: inset 0 0 5.6px -3px rgba(0,0,0,25);
 }
 
-.navigate {
+.navigate-button {
 	border: none;
 	background-color: rgba(255,255,255,0);
 	font-family: Jost;
@@ -70,15 +86,15 @@ main {
 	padding-bottom: 40px;
 }
 
-.prev {
+#prev {
 	left: -2px;
 }
 
-.next {
+#next {
 	right: -2px;
 }
 
-.navigate:hover {
+.navigate-button:hover {
 	color: rgb(209, 110, 110);
 	cursor: pointer;
 }
@@ -89,7 +105,6 @@ main {
 	width: 100%;
 	position: relative;
 	display: flex;
-	/* background-color: aqua; */
 	overflow-x: auto;
 	max-height: 100%;
 }
@@ -184,8 +199,94 @@ th {
 footer {
 	background-color: #5077AF;
 	width: 100%;
-	margin-bottom: 0;
 	height: 50px;
 	bottom: 0;
+	margin-bottom: 0;
 	position: absolute;
+}
+
+.form-container {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	max-width: 600px;
+	text-align: center;
+	margin-top: 130px;
+}
+
+form {
+	padding: 0 25px;
+}
+
+.field {
+	width: 99%;
+	margin: 10px auto;
+	font-family: Jost;
+	font-size: 16px;
+	border-radius: 100vw;
+	border: none;
+	box-shadow: 0 0 8px -5px rgba(0,0,0,25);
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.form-button {
+	width: 48%;
+	margin-top: 15px;
+	font-family: Jost;
+	font-size: 20px;
+	font-weight: 200;
+	border-radius: 100vw;
+	background-color: #5077AF;
+	color: white;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+}
+
+#button-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#reg-heading {
+	font-family: Jost;
+	font-size: 38px;
+}
+
+#back, #new-user {
+	background-color: #878787;
+	color: b;
+}
+
+
+
+
+
+@media (width < 1000px) and (width > 500px){
+    .heading {
+		margin-right: 15px;
+		text-align: right;
+		font-size: 3vw;
+	}
+	#user-name {
+		font-size: 22px;
+	}
+
+}
+
+@media (width < 550px) {
+    .heading {
+		margin-right: 15px;
+		width: 25%;
+		line-height: 20px;
+		text-align: right;
+		font-size: 3vw;
+	}
+
+	#user-name {
+		font-size: 20px;
+	}
 }
