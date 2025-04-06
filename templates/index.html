@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urnik</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Major+Mono+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<form method="post" style="padding: 0; margin: 0;">
+    <header>
+        <div id="name-container">
+            <div id="user-name"> {{ user_name }} </div>
+        </div>
+        <div class="heading">REZERVACIJA GLASBENE SOBE</div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="date-navigation">
+                {% if offset > 0 %}
+                <a href="/{{ offset - 1 }}" id="prev" class="navigate-button">‹</a>
+                {% else %}
+                <a id="prev" class="navigate-button">‹</a>
+                {% endif %}
+                {{ date_range[0] }}
+                <a href="/{{ offset + 1 }}" id="next" class="navigate-button">›</a>
+            </div>
+        </div>
+        <div class="schedule-container">
+            <table class="schedule">
+                <thead>
+                    <tr>
+                        <th class="time" id="corner"></th>
+                        {% for date, week_day in date_range[1] %}
+                        <th><div class="date">{{ date }}</div><div class="day">{{ week_day }}</div></th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                {% for i in range(10) %}
+                    <tr>
+                        {% if i != 9 %}
+                        <td class="time">{{8 + i}}:00</td>
+                        {% else %}
+                        <td class="time" style="translate: 0;"></td>
+                        {% endif %}
+                        {% for j in range(5) %}
+                        {% if indexes[i][j] in reservations.keys() %}
+                            {% if reservations[indexes[i][j]] == user_id %}
+                            <td><div class="cell-container"><button name="remove" value="{{ i }}{{ j }}" class="cell-button remove">✕</button></div></td>
+                            {% else %}
+                            <td><div class="cell-container booked"></div></td>
+                            {% endif %}
+                        {% else %}
+                        <td><div class="cell-container"><button name="add" value="{{ i }}{{ j }}" class="cell-button add">+</button></div></td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+    <footer>
+        <div></div>
+    </footer>
+</form>
+</body>
+</html>
